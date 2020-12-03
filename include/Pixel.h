@@ -18,9 +18,10 @@ public:
 	//scoped opertators
 	Pixel& operator=(const Pixel& pixel);
 	Pixel& operator|=(const Pixel& pixel);
-private:
-	
 	void Set_Color(unsigned char color);
+
+private:
+
 	
 	unsigned char m_color;
 };

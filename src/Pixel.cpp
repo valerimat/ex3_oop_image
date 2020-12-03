@@ -97,7 +97,7 @@ bool operator<(const Pixel& one, const Pixel& two) {
 
 //prints pixel to the stream
 std::ostream& operator<<(std::ostream& stream, const Pixel& pixel) {
-	stream << pixel.Get_Color();
+	return stream << pixel.Get_Color();
 }
 
 Pixel operator|(const Pixel& one, const Pixel& two) {
