@@ -3,36 +3,44 @@
 #include <iostream>
 #include "Pixel.h"
 #include "macros.h"
-
+#include "ImageDataStructure.h"
 
 class Image
 {
 public:
+	Image(const Image& other);
 	Image();
 	Image(int height, int width);
 	Image(int height, int width, unsigned char pixel);
-	Image(const Image &other);
+	//(const Image &other);
 	~Image(); // have issues we need to know why
 
 	Image &operator=(const Image &other);
-	Image operator+(const Image &other);
+	Image operator+(const Image &other)const;
+	Pixel& operator()(int unsigned i, int unsigned j) ;
+	Pixel  operator()(int unsigned i, int unsigned j) const;
+	Image operator|(const Image& other)const;
+	Image operator&(const Image& other)const;
 
-	int			 get_height() const;
-	int			 get_width()  const;
-	unsigned int get_color()  const;
-	void print_image() const; // we can delete we have <<
+	int			 GetHeight() const;
+	int			 GetWidth()  const;
 
 private:
 
+	unsigned int get_color()  const;
 	int m_height, m_width;
 	unsigned char m_pixel;
-	Pixel **m_image;
-
+	ImageDataStructure m_data;
 	void set_image_pixel(int x, int y , unsigned char pixel);
 };
 
 bool operator==(const Image &left, const Image &right);
 bool operator!=(const Image &left, const Image &right);
-
+Image &operator|=(Image& left, const Image& right);
+Image& operator&=(Image& left, const Image& right);
+Image &operator+=(Image& left, const Image& right);
+Image operator*(const Image& left, int n);
+Image operator*(int n, const Image& image);
+Image operator~(const Image& other);
 std::ostream &operator<<(std::ostream &stream, const Image &image);
 

@@ -35,5 +35,7 @@ bool operator==(const Pixel& one, const Pixel& two);
 bool operator>(const Pixel& one, const Pixel& two);
 bool operator<(const Pixel& one, const Pixel& two);
 Pixel operator|(const Pixel& one, const Pixel& two);
+Pixel operator&(const Pixel& one, const Pixel& two);
+Pixel& operator&=(Pixel& one, const Pixel& two);
 
 std::ostream& operator<<(std::ostream&, const Pixel&);

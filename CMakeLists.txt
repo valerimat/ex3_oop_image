@@ -1,4 +1,4 @@
-
+#[[
 cmake_minimum_required (VERSION 3.14)
 
 project(oop1_ex03)
@@ -15,10 +15,11 @@ add_executable (oop1_ex03 "")
 add_subdirectory (include)
 add_subdirectory (src)
 
+]]
 
 
 #Tests Cmake will use later
-#[[
+
 cmake_minimum_required (VERSION 3.14)
 
 project (oop1_ex03)
@@ -55,4 +56,3 @@ target_include_directories (Tests PRIVATE ${Mimic_INCLUDE_DIRECTORIES})
 include (CTest)
 include (Catch)
 catch_discover_tests (Tests)
-]]

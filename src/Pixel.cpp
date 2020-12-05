@@ -42,7 +42,7 @@ Pixel& Pixel::operator|=(const Pixel& pixel) {
 
 unsigned char Pixel::Get_Color() const
 {
-	return m_color;
+ 	return m_color;
 }
 
 
@@ -52,7 +52,7 @@ void Pixel::Flip()
 {
 	if (m_color == WHITE)
 		Set_Color(BLACK);
-	if (m_color == BLACK)
+	else if (m_color == BLACK)
 		Set_Color(WHITE);
 }
 
@@ -111,4 +111,20 @@ Pixel operator|(const Pixel& one, const Pixel& two) {
 
 	return Pixel(two);
 
+}
+
+Pixel operator&(const Pixel& one, const Pixel& two) {
+	//if qual return the first one
+	if (one == two)
+		return Pixel(one);
+
+	//return the lighter
+	if (one > two)
+		return Pixel(two);
+
+	return Pixel(one);
+}
+
+Pixel &operator&=(Pixel& one, const Pixel& two) {
+	return one = one & two;
 }
